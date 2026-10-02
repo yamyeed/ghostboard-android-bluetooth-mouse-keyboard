@@ -244,10 +244,12 @@ class BluetoothHidManager private constructor(private val context: Context) {
     private fun registerHidApp() {
         val hid = hidDevice ?: return
 
+        // 仅 fork：SDP 名称加 -Relay 后缀，与原版在受控端蓝牙列表里区分开，
+        // 避免两个 App 同时注册 HID Device Profile 时无法辨认连的是哪一个。
         val sdp = BluetoothHidDeviceAppSdpSettings(
-            "GhostBoard",
-            "Phone as Mouse & Keyboard",
-            "GhostBoard",
+            "GhostBoard-Relay",
+            "Phone as Mouse/Keyboard + Text Relay",
+            "GhostBoard Relay",
             BluetoothHidDevice.SUBCLASS1_COMBO,
             HID_REPORT_DESCRIPTOR
         )

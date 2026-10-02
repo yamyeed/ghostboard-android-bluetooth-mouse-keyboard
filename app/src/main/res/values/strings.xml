@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GhostBoard</string>
+    <!-- 仅 fork：与原版 GhostBoard 同时安装时用于区分 -->
+    <string name="app_name">GhostBoard 中继版</string>
     <string name="trackpad_label">Trackpad</string>
     <string name="connect">Connect</string>
     <string name="disconnect">Disconnect</string>

@@ -8,11 +8,13 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.remoteinput"
+        // ── 仅 fork 分支的定制（上游 PR 保持 com.example.remoteinput）──
+        // 换成独立包名，让中继版可以和原版 GhostBoard 同时安装、互不覆盖。
+        applicationId = "com.dev.hidrelay.keyboard"
         minSdk = 28          // BluetoothHidDevice (HID Device Profile) 需要 API 28+
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1-relay"
     }
 
     buildTypes {
