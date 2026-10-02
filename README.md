@@ -37,21 +37,25 @@ Built for the couch, the bed, or anywhere you want to control your PC without re
 
 ## Setup
 
-1. **Download the APK** — Grab the latest APK from the [Releases](https://github.com/ToxicOrca/ghostboard-android-bluetooth-mouse-keyboard/releases) page. Transfer it to your phone and install (you may need to enable "Install from unknown sources" in your phone's settings).
+1. **Build the APK yourself** — this repository ships **no prebuilt APK and no signing key**.
+   Build it from source so the APK is signed with a key only you control:
 
-   Or build it yourself:
    ```
-   git clone https://github.com/ToxicOrca/ghostboard-android-bluetooth-mouse-keyboard.git
+   git clone https://github.com/yamyeed/ghostboard-android-bluetooth-mouse-keyboard.git
    cd ghostboard-android-bluetooth-mouse-keyboard
+   git checkout fork-release
    ./gradlew assembleDebug
    ```
-   The APK will be at `app/build/outputs/apk/debug/app-debug.apk`.
+   The APK will be at `app/build/outputs/apk/debug/app-debug.apk`. Transfer it to your phone and
+   install (you may need to enable "Install from unknown sources" in your phone's settings).
 
-   > **On signing.** The git repository contains **no keystores and no prebuilt APKs** —
-   > `.gitignore` covers `*.jks`, `*.keystore` and `*.apk` so they cannot be committed by
-   > accident. An APK is only as trustworthy as the key it is signed with, so building it
-   > yourself is preferred. If you want to publish your own build, generate your own keystore
-   > and keep it **outside** the repository.
+   > **Why build it yourself?** An APK is only as trustworthy as the key it is signed with.
+   > Installing a build that someone else signed means you cannot verify what is inside it, and
+   > you can never replace it with your own build later (a different key cannot update in place).
+   >
+   > This repository contains **no keystores and no APKs** — `.gitignore` covers `*.jks`,
+   > `*.keystore` and `*.apk` so they cannot be committed by accident. If you want to publish
+   > your own build, generate your own keystore and keep it **outside** the repository.
 
 2. **Pair your phone with your PC:**
    - Open GhostBoard on your phone
